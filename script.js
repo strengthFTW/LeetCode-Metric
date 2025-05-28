@@ -36,19 +36,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const url = `https://leetcode-stats-api.herokuapp.com/${username}`
         try {
             const response = await fetch(url);
+            const data = await response.json();
+
             if (data.status === "error") {
                 throw new Error("unable to load user data");
 
             }
-            const data = await response.json();
             console.log("logging data:", data);
 
             displaydata(data);
         }
         catch (error) {
-        console.error("Error fetching data:", error);
-        statContainer.innerHTML = '<p>No data found</p>';
-        statCards.style.display = 'none';
+            console.error("Error fetching data:", error);
+            statContainer.innerHTML = '<p>No data found</p>';
+            statCards.style.display = 'none';
 
         }
         finally {
@@ -75,9 +76,9 @@ document.addEventListener("DOMContentLoaded", function () {
         statCards.style.display = 'flex';
     }
 
-    function updateProgress(solved, total, circle ,label) {
-        const progressDegree = (solved/total)*100;
-        circle.style.setProperty("--progress-degree",`${progressDegree}%`);
+    function updateProgress(solved, total, circle, label) {
+        const progressDegree = (solved / total) * 100;
+        circle.style.setProperty("--progress-degree", `${progressDegree}%`);
         label.textContent = `${solved}/${total}`;
     }
 
