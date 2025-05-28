@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     searchButton.addEventListener('click', function () {
+
         const username = userInput.value;
         console.log("user:", username);
 
@@ -90,6 +91,12 @@ document.addEventListener("DOMContentLoaded", function () {
             fetchUserDetails(username);
         }
     })
+    userInput.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevents page refresh
+            searchButton.click();   // Triggers search
+        }
+    }); a
 
 
 })
