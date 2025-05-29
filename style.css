@@ -20,12 +20,20 @@ body {
     gap: 1.5rem;
     padding: 1.5rem;
     border-radius: 5px;
-    border: solid 1px black;
-    max-width: 600px;
+    border: solid 1px rgb(17, 17, 17);
+    max-width: 500px;
 }
 
 h1 {
     text-align: center;
+}
+
+#search-button{
+    font-size: 10px;
+    padding: 2.5px 1px;
+    color: white;
+    background-color: rgb(46, 46, 46);
+    border:0.5px solid #0f4e2a;
 }
 
 .user-details{
@@ -71,3 +79,28 @@ h1 {
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.cards{
+    font-size: 12px;
+    background-color: rgb(26, 25, 25);
+    padding: 8px 20px;
+    min-width: 150px;
+    border-radius: 3%;
+    text-align: center;
+  box-shadow: 6px 6px 12px #1d1c1c, -6px -6px 12px #161616;    border: 1px solid rgb(53, 52, 52);
+    
+
+}
+
+@media (max-width: 500px) {
+    #statCards {
+        grid-template-columns: 1fr;
+}}

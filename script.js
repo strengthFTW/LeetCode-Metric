@@ -73,8 +73,25 @@ document.addEventListener("DOMContentLoaded", function () {
         updateProgress(MediumSQ, MediumQ, mediumDiv, mediumSpan)
         updateProgress(HardSQ, HardQ, hardDiv, hardSpan)
 
-        statCards.style.display = 'flex';
-    }
+            const CardsData = [
+                { label: "Total Questions", value: data.totalQuestions },
+                { label: "Total Submitted", value: data.totalSolved },
+                { label: "Rank", value: data.ranking },
+                { label: "Acceptance Rate", value: data.acceptanceRate },
+
+            ];
+            console.log(CardsData);
+
+            statCards.innerHTML = CardsData.map(
+                data =>
+                    `<div class="cards">
+                <h4>${data.label}</h4>
+                <p>${data.value}</p>
+            </div>`
+            ).join("");
+
+
+        }
 
     function updateProgress(solved, total, circle, label) {
         const progressDegree = (solved / total) * 100;
